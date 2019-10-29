@@ -1,0 +1,18 @@
+# modules
+node_modules
+
+# build
+dist
+
+# variables
+.env*
+
+# editor
+.vscode
+
+# removed to avoid merge conflicts
+# should be enabled after tutorial finished
+package-lock.json
+
+# tutorial-json
+tutorial.json

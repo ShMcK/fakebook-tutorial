@@ -1,0 +1,35 @@
+{
+	"name": "fakebook",
+	"version": "1.0.0",
+	"description": "A social network API",
+	"main": "dist/main.js",
+	"scripts": {
+		"postbuild": "dist/ && copyfiles -u 1 src/**/*.{gql|graphql} dist/",
+		"build": "rimraf dist && tsc",
+		"test": "jest",
+		"start": "nodemon --config ./nodemon.json",
+		"prod:start": "NODE_ENV=production node dist/main.js"
+	},
+	"keywords": [
+		"apollo",
+		"graphql"
+	],
+	"author": "Shawn McKay <shawn.j.mckay@gmail.com>",
+	"license": "ISC",
+	"dependencies": {},
+	"devDependencies": {
+		"@types/jest": "^24.0.23",
+		"@types/node": "^12.12.7",
+		"@typescript-eslint/eslint-plugin": "^2.7.0",
+		"@typescript-eslint/parser": "^2.7.0",
+		"copyfiles": "^2.1.1",
+		"eslint-config-prettier": "^6.5.0",
+		"eslint-plugin-prettier": "^3.1.1",
+		"jest": "^24.9.0",
+		"jest-tap-reporter": "^1.9.0",
+		"jest-transform-graphql": "^2.1.0",
+		"ts-jest": "^24.1.0",
+		"ts-node": "^8.5.2",
+		"typescript": "^3.7.2"
+	}
+}

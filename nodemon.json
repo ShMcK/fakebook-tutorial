@@ -1,0 +1,9 @@
+{
+	"restartable": "rs",
+	"colours": true,
+	"verbose": false,
+  "ignore": [".git", "tests/**/*.test.ts", "node_modules/**/node_modules"],
+  "exec": "ts-node ./src/main.ts",
+  "watch": ["src/**/*.{ts|gql|graphql|json}"],
+  "ext": "ts,gql,graphql,json"
+}
