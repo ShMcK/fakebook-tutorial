@@ -6,3 +6,5 @@ export const server = new ApolloServer({
 	typeDefs,
 	resolvers,
 })
+
+server.listen(4000)
