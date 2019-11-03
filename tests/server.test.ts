@@ -24,4 +24,9 @@ describe('Apollo Server', () => {
 		expect(server.httpServer).toBeDefined()
 	})
 
+	test('configures playground', () => {
+		// @ts-ignore // accessing private internals
+		expect(server.config.playground).toBe(true)
+	})
+
 })
