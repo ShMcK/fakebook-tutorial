@@ -5,6 +5,7 @@ import resolvers from './resolvers'
 export const server = new ApolloServer({
 	typeDefs,
 	resolvers,
+	playground: true,
 })
 
 server.listen(4000)
