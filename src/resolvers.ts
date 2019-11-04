@@ -5,6 +5,12 @@ const resolvers = {
 		viewer() {
 			return users.find(user => user.id === '1')
 		}
+	},
+	User: {
+		friends(parent) {
+			const userFriends = parent.friends
+			return users.filter(user => userFriends.includes(user.id))
+		}
 	}
 }
 
