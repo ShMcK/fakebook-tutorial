@@ -1,4 +1,5 @@
 import users from './data/users'
+import messages from './data/messages'
 
 const resolvers = {
 	Query: {
@@ -10,6 +11,10 @@ const resolvers = {
 		friends(parent) {
 			const userFriends = parent.friends
 			return users.filter(user => userFriends.includes(user.id))
+		},
+		feed(parent) {
+			const feedUsers = [parent.id, ...parent.friends]
+			return messages.filter(user => feedUsers.includes(user.id))
 		}
 	}
 }
