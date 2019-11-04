@@ -74,4 +74,28 @@ describe('Resolvers', () => {
     expect(typeof aMessage.createdAt).toBe('string')
     expect(typeof aMessage.content).toBe('string')
 	})
+
+	test('should handle message user', async() => {
+		const query = `
+			{
+				viewer {
+					id
+					feed {
+						id
+						user {
+							id
+						}
+					}
+				}
+			}
+		`
+	 // First arg: false, there is no invalidField on the schema.
+    const result = await tester.graphql(query)
+    const {viewer} = result.data
+
+		// test a single friend
+		const aMessage = viewer.feed[0]
+		expect(aMessage.user).toBeDefined()
+		expect(typeof aMessage.user.id).toBe('string')
+	})
 })
