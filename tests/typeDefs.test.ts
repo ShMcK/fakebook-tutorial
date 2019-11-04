@@ -36,4 +36,22 @@ describe('TypeDefs', () => {
 		`
 		tester.test(true, validQuery)
 	})
+
+	test('should add User feed', () => {
+		const validQuery = `
+			{
+				viewer {
+					id
+					firstName
+					lastName
+					feed {
+						id
+						createdAt
+						content
+					}
+				}
+			}
+		`
+		tester.test(true, validQuery)
+	})
 })
