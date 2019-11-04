@@ -20,4 +20,20 @@ describe('TypeDefs', () => {
 		`
 		tester.test(true, validQuery)
 	})
+
+	test('should add User friends', () => {
+		const validQuery = `
+			{
+				viewer {
+					id
+					firstName
+					lastName
+					friends {
+						id
+					}
+				}
+			}
+		`
+		tester.test(true, validQuery)
+	})
 })
