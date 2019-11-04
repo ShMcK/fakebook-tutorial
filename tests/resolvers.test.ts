@@ -114,4 +114,9 @@ describe('Resolvers', () => {
 		expect(user).toBeDefined()
 		expect(typeof user.firstName).toBe('string')
 	})
+
+	test('should use message DateTime', async () => {
+		// @ts-ignore
+		expect(resolvers.DateTime.name).toBe('DateTime')
+	})
 })
