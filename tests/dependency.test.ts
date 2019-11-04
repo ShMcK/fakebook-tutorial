@@ -16,4 +16,12 @@ describe('Dependency', () => {
 		})
 		expect(isInstalled).toBe(true)
 	})
+
+	test('"graphql-iso-date" is installed', async () => {
+		const isInstalled = await packaged({
+			name: 'graphql-iso-date',
+			type: 'dependency'
+		})
+		expect(isInstalled).toBe(true)
+	})
 })
