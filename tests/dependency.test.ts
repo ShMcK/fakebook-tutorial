@@ -1,7 +1,7 @@
 import packaged from './utils/packaged'
 
 describe('Dependency', () => {
-	test('"apollo-server" is not installed', async () => {
+	test.skip('"apollo-server" is not installed', async () => {
 		const isInstalled = await packaged({
 			name: 'apollo-server',
 			type: 'dependency'
@@ -9,7 +9,7 @@ describe('Dependency', () => {
 		expect(isInstalled).toBe(true)
 	})
 
-	test('"graphql" is not installed', async () => {
+	test.skip('"graphql" is not installed', async () => {
 		const isInstalled = await packaged({
 			name: 'graphql',
 			type: 'dependency'
