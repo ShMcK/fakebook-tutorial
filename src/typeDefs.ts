@@ -1,6 +1,8 @@
 import { gql } from 'apollo-server'
 
 const typeDefs = gql`
+	scalar DateTime
+
 	type Query {
 		viewer: User
 		user(id: ID!): User!
