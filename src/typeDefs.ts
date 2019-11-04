@@ -17,6 +17,7 @@ const typeDefs = gql`
 		id: ID!
 		createdAt: String!
 		content: String!
+		user: User!
 	}
 `
 
