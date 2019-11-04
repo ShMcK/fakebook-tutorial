@@ -119,4 +119,23 @@ describe('Resolvers', () => {
 		// @ts-ignore
 		expect(resolvers.DateTime.name).toBe('DateTime')
 	})
+
+	test('should have sorted feed by reverse createdAt', async () => {
+		const query = `
+			{
+				viewer {
+					feed {
+						id
+						createdAt
+					}
+				}
+			}
+		`
+    const result = await tester.graphql(query)
+    const {viewer} = result.data
+		
+		const feed = viewer.feed.map(f => f.id)
+		const sortedFeed = viewer.feed.sort((a, b) => a.createdAt < b.createdAt ? 1 : -1).map(f => f.id)
+		expect(feed).toEqual(sortedFeed)
+	})
 })
