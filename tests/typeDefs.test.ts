@@ -92,4 +92,12 @@ describe('TypeDefs', () => {
 		const hasDateTimeScalar = scalarTypeDefs.some(td => td.name.value === 'DateTime')
 		expect(hasDateTimeScalar).toBe(true)
 	})
+
+	test('message createdAt set to DateTime', () => {
+		// @ts-ignore accessing internals
+		const messageTypeDef = typeDefs.definitions.find(td => td.name.value === 'Message')
+		// @ts-ignore accessing internals
+		const createdAtFieldValue = messageTypeDef.fields.find(f => f.name.value === 'createdAt')
+		expect(createdAtFieldValue.type.type.name.value).toBe('DateTime')
+	})
 })
