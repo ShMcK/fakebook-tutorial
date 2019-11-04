@@ -1,3 +1,4 @@
+import { GraphQLDateTime } from 'graphql-iso-date'
 import users from './data/users'
 import messages from './data/messages'
 
@@ -26,7 +27,8 @@ const resolvers = {
 			const userId = parent.id
 			return users.find(user => user.id === userId)
 		}
-	}
+	},
+	DateTime: GraphQLDateTime
 }
 
 export default resolvers
