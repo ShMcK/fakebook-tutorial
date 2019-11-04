@@ -16,6 +16,12 @@ const resolvers = {
 			const feedUsers = [parent.id, ...parent.friends]
 			return messages.filter(user => feedUsers.includes(user.id))
 		}
+	},
+	Message: {
+		user(parent) {
+			const userId = parent.id
+			return users.find(user => user.id === userId)
+		}
 	}
 }
 
