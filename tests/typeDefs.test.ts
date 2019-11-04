@@ -84,4 +84,12 @@ describe('TypeDefs', () => {
 		`
 		tester.test(true, validQuery)
 	})
+
+	test('should include DateTime scalar', () => {
+		// @ts-ignore accessing internals
+		const scalarTypeDefs = typeDefs.definitions.filter(td => td.kind === 'ScalarTypeDefinition')
+		// @ts-ignore accessing internals
+		const hasDateTimeScalar = scalarTypeDefs.some(td => td.name.value === 'DateTime')
+		expect(hasDateTimeScalar).toBe(true)
+	})
 })
