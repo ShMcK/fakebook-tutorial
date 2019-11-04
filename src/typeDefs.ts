@@ -18,7 +18,7 @@ const typeDefs = gql`
 
 	type Message {
 		id: ID!
-		createdAt: String!
+		createdAt: DateTime!
 		content: String!
 		user: User!
 	}
