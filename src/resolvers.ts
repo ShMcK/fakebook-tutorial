@@ -1,7 +1,9 @@
+import users from './data/users'
+
 const resolvers = {
 	Query: {
-		hello() {
-			return 'world'
+		viewer() {
+			return users.find(user => user.id === '1')
 		}
 	}
 }
