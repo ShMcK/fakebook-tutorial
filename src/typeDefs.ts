@@ -10,6 +10,13 @@ const typeDefs = gql`
 		firstName: String
 		lastName: String
 		friends: [User!]!
+		feed: [Message!]!
+	}
+
+	type Message {
+		id: ID!
+		createdAt: String!
+		content: String!
 	}
 `
 
