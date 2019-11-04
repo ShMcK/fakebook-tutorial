@@ -19,7 +19,9 @@ const resolvers = {
 		},
 		feed(parent) {
 			const feedUsers = [parent.id, ...parent.friends]
-			return messages.filter(user => feedUsers.includes(user.id))
+			return messages
+				.filter(user => feedUsers.includes(user.id))
+				.sort((a, b) => a.createdAt > b.createdAt ? -1 : 1)
 		}
 	},
 	Message: {
