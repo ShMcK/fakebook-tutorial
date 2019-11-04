@@ -26,4 +26,29 @@ describe('Resolvers', () => {
     expect(typeof viewer.firstName).toBe('string')
     expect(typeof viewer.lastName).toBe('string')
   })
+
+	test('should handle user friends', async () => {
+		const query = `
+			{
+				viewer {
+					id
+					firstName
+					lastName
+					friends {
+						id
+						firstName
+						lastName
+					}
+				}
+			}
+		`
+		 // First arg: false, there is no invalidField on the schema.
+    const result = await tester.graphql(query)
+    const {viewer} = result.data
+    expect(viewer.friends).toHaveLength
+		// test a single friend
+		const aFriend = viewer.friends[0]
+    expect(typeof aFriend.firstName).toBe('string')
+    expect(typeof aFriend.lastName).toBe('string')
+	})
 })
