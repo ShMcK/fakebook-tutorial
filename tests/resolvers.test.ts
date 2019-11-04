@@ -98,4 +98,20 @@ describe('Resolvers', () => {
 		expect(aMessage.user).toBeDefined()
 		expect(typeof aMessage.user.id).toBe('string')
 	})
+
+	test('should add user query', async () => {
+		const query = `
+			{
+				user(id: "2") {
+					id
+					firstName
+					lastName
+				}
+			}
+		`
+		const result = await tester.graphql(query)
+		const { user } = result.data
+		expect(user).toBeDefined()
+		expect(typeof user.firstName).toBe('string')
+	})
 })
