@@ -71,4 +71,17 @@ describe('TypeDefs', () => {
 		`
 		tester.test(true, validQuery)
 	})
+
+	test('should add user query', () => {
+		const validQuery = `
+			{
+				user(id: "2") {
+					id
+					firstName
+					lastName
+				}
+			}
+		`
+		tester.test(true, validQuery)
+	})
 })
