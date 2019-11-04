@@ -5,6 +5,10 @@ const resolvers = {
 	Query: {
 		viewer() {
 			return users.find(user => user.id === '1')
+		},
+		user(_, args) {
+			const userId = args.id
+			return users.find(user => user.id === userId)
 		}
 	},
 	User: {
