@@ -54,4 +54,21 @@ describe('TypeDefs', () => {
 		`
 		tester.test(true, validQuery)
 	})
+
+	test('should add Message user', () => {
+		const validQuery = `
+			{
+				viewer {
+					id
+					feed {
+						id
+						user {
+							id
+						}
+					}
+				}
+			}
+		`
+		tester.test(true, validQuery)
+	})
 })
