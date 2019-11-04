@@ -9,6 +9,7 @@ const typeDefs = gql`
 		id: ID!
 		firstName: String
 		lastName: String
+		friends: [User!]!
 	}
 `
 
